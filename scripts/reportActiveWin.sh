@@ -15,7 +15,7 @@ then
   # Vlad
   fun_MAX_school=45
   fun_MAX_weekend=90
-  fun_MAX_holiday=60 # 120
+  fun_MAX_holiday=120
 
   time_to_sleep_school="20:45"
   time_to_sleep_weekend="21:30"
@@ -24,9 +24,9 @@ then
   time_to_wakeup="08:55"
 else
   # Radu
-  fun_MAX_school=60   #  60
+  fun_MAX_school=60
   fun_MAX_weekend=120 
-  fun_MAX_holiday=30  # 180
+  fun_MAX_holiday=180
 
   time_to_sleep_school="21:45"
   time_to_sleep_weekend="22:30"
