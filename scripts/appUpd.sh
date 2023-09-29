@@ -1,8 +1,9 @@
 #!/bin/bash
 
+libreOffice=`ls -1 /usr/share/applications/libreoffice*-base.desktop | awk -F '[/-]' '{print $5}'`
 
 dstApp=("/opt/cxoffice/bin/wine" \
-	"libreoffice7.4" \
+	"${libreOffice}" \
 	"/opt/blender/blender" \
 	"/opt/google/chrome/chrome" \
 	"/snap/geforcenow-electron/17/geforcenow-electron" \
