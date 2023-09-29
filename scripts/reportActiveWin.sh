@@ -14,7 +14,7 @@ if [[ "${userLoggedIn}" == "vlad" ]]
 then
   # Vlad
   fun_MAX_school=45
-  fun_MAX_weekend=90
+  fun_MAX_weekend=75
   fun_MAX_holiday=120
 
   time_to_sleep_school="20:45"
@@ -25,14 +25,14 @@ then
 else
   # Radu
   fun_MAX_school=60
-  fun_MAX_weekend=120 
+  fun_MAX_weekend=90 
   fun_MAX_holiday=180
 
   time_to_sleep_school="21:45"
   time_to_sleep_weekend="22:30"
   time_to_sleep_holiday="20:30"
 
-  time_to_wakeup="08:55"
+  time_to_wakeup="07:55"
 fi
 
 
