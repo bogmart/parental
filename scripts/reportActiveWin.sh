@@ -73,7 +73,7 @@ learningTime=`cat ${logPath}/${logFileLast}  | grep -oE ":: x.*(${learningStr})"
 
 meetTime=`cat ${logPath}/${logFileLast}      | grep ":: Meet " | grep -vcE "[zZ]oom"`
 
-moviesStr=":: vlc ::| movies|videos|/video/|[vV]iki|IEVENN"
+moviesStr=":: vlc ::|lookmovie2| movies|videos|/video/|[vV]iki|IEVENN"
 moviesTime=`cat ${logPath}/${logFileLast}    | grep -cE "${moviesStr}"`
 
 whatsAppTime=`cat ${logPath}/${logFileLast}  | grep -c ":: WhatsApp"`
