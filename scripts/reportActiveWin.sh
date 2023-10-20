@@ -17,6 +17,8 @@ then
   fun_MAX_weekend=75
   fun_MAX_holiday=120
 
+  others_MAX_coefficient="3 / 2"
+
   time_to_sleep_school="20:45"
   time_to_sleep_weekend="21:30"
   time_to_sleep_holiday="20:30"
@@ -28,6 +30,8 @@ else
   fun_MAX_weekend=90 
   fun_MAX_holiday=180
 
+  others_MAX_coefficient="3 / 2"
+  
   time_to_sleep_school="21:45"
   time_to_sleep_weekend="22:30"
   time_to_sleep_holiday="20:30"
@@ -151,7 +155,7 @@ then
   fi
 
   # max time for "others"
-  othersMaxTime=$(( ${funMaxTime} * 3 / 2 ))
+  othersMaxTime=$(( ${funMaxTime} * ${others_MAX_coefficient} ))
 
   #echo funTime: ${funTime} funMaxTime: ${funMaxTime}  othersMaxTime: ${othersMaxTime} >> /tmp/tmp.txt
 
