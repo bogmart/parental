@@ -31,3 +31,22 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="add", RUN+="/home/parental/scripts/reportActiveWin.sh"
 
+
+
+## pm-util
+#################################################################
+#file: /lib/systemd/system-sleep/parental_update 
+
+#!/bin/sh
+
+# bogmart
+#  https://ubuntuforums.org/showthread.php?t=2340976
+#
+# Action script ensure that existing restrictions are cleared on resume
+
+case "${1}" in
+post)
+  /home/parental/scripts/cronPermitAny.sh
+  /home/parental/scripts/reportActiveWin.sh
+  ;;
+esac

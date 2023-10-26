@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# used by:
+#  /home/parental/scripts/cronReportActiveWin.sh
+#  /etc/udev/rules.d/99-usb-mouse.rules
+#  /etc/pm/sleep.d/99_parental_update
+
+
 logPath=/home/parental/logs
 
 holiday=0
