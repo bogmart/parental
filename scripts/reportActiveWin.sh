@@ -221,7 +221,20 @@ function sayMessage {
     amixer -q set Master 60
   fi
 
-   su ${userLoggedIn} -c "espeak '${msg}' -s 100 -a 300  -v en-us"
+  mic_status=`amixer get Capture | awk '/Left: Capture/{printf $7}'`
+  if [[ ${mic_status} == "[on]" ]]
+  then
+    # mute the microphone
+    amixer -q set Capture nocap
+  fi
+
+  su ${userLoggedIn} -c "espeak '${msg}' -s 100 -a 300  -v en-us"
+
+  if [[ ${mic_status} == "[on]" ]]
+  then
+    # restore the microphone state
+    amixer -q set Capture cap
+  fi
 } 
 
 function blockAnyActiv {
@@ -236,6 +249,9 @@ function blockAnyActiv {
 
   ### mute sound
   amixer -q set Speaker mute
+
+  ## mute microphone
+  amixer -q set Capture nocap
 
   ### mute bluetooth
   # pactl set-sink-mute @DEFAULT_SINK@ 1
@@ -264,6 +280,9 @@ function unblockActiv {
 
     ### un-mute bluetooth
     # pactl set-sink-mute @DEFAULT_SINK@ 0
+
+    ## un-mute microphone
+    amixer -q set Capture cap
 
     ### turn monitor ON
     xset dpms force on
