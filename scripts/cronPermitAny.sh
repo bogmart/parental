@@ -12,3 +12,6 @@
 
 /home/parental/scripts/appUpd.sh -a allow
 
+## un-mute the audio devices
+/home/parental/scripts/mediaControl.sh
+
