@@ -71,10 +71,10 @@ browsersActiveTime=`cat ${logPath}/${logFileLast} | grep -cE ":: chrome|firefox"
 chessStr=":: x.*[cC]hess\.com"
 chessTime=`cat ${logPath}/${logFileLast}     | grep -oE "${chessStr}" | wc -l`
 
-gamesWebStr="[aton|] CrazyGames|Grepolis|[rR]2[gG]ames.com|oskarstalberg|slither.io|Elvenar|wilds.io|Total Battle|Mars Tomorrow|Krunker|Play.*on Poki|iogameslist.org|https://(ro|en)..*/game|On.*s.l.o.w.*r.o.a.d.s"
+gamesWebStr="[aton|] CrazyGames|Grepolis|[rR]2[gG]ames.com|oskarstalberg|slither.io|Elvenar|wilds.io|Total Battle|Mars Tomorrow|Krunker|Play.*on Poki|iogameslist.org|https://(ro|en)..*/game|On.*s.l.o.w.*r.o.a.d.s|Stumble Guys"
 gamesWebTime=`cat ${logPath}/${logFileLast}  | grep -cE "${gamesWebStr}"`
 
-gamesAboutStr="steampowered\.com"
+gamesAboutStr="steampowered\.com|sportskeeda\.com"
 gamesAboutTime=`cat ${logPath}/${logFileLast}  | grep -cE "${gamesAboutStr}"`
 # this value will be reduced by a factor of 2 on total funTime
 
