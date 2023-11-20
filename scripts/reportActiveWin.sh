@@ -45,9 +45,14 @@ else
   time_to_wakeup="07:55"
 fi
 
+## "force" is provided by udev
+force_exec=0
+if [[ $1 == "force" ]]
+then
+  force_exec=1
+fi
 
-
-if [ $# -eq 0 ]
+if [ $# -eq 0 ] || [ ${force_exec} -eq 1 ]
 then
   logFileLast=`ls -1 ${logPath} | tail -n1`
 else
@@ -305,7 +310,7 @@ function unblockActiv {
   timeSaySleep=`date +%H:%M  -d "${gotoSleepTime} ${time_zone} +1 min"`
   if [[ "${currentTime}" > "${timeSaySleep}"    ]]
   then
-    if [[ "${monitorState}" == "On" || "${monitorState}" == "Disabled" ]]
+    if [[ "${monitorState}" == "On" || "${monitorState}" == "Disabled" ]] || [ ${force_exec} -eq 1 ]
     then
       sayMessage "It is time to sleep! Please save your work!"
 
@@ -318,7 +323,7 @@ function unblockActiv {
 
   elif [ ${active_duration} -ge $(( ${active_max_duration} -1 )) ]
   then
-    if [[ "${monitorState}" == "On" || "${monitorState}" == "Disabled" ]]
+    if [[ "${monitorState}" == "On" || "${monitorState}" == "Disabled" ]] || [ ${force_exec} -eq 1 ]
     then
       zoom_active=`xdotool search  --name "Zoom Meeting"`
       if [[ "${zoom_active}" == "" ]]

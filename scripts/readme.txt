@@ -29,7 +29,7 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 # How to debug:
 #   udevadm monitor --kernel --property --subsystem-match=input
 
-SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="add", RUN+="/home/parental/scripts/reportActiveWin.sh"
+SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="add", RUN+="/home/parental/scripts/reportActiveWin.sh force"
 
 
 
