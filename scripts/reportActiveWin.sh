@@ -94,7 +94,7 @@ moviesTime=`cat ${logPath}/${logFileLast}    | grep -cE "${moviesStr}"`
 whatsAppTime=`cat ${logPath}/${logFileLast}  | grep -c ":: WhatsApp"`
 
 youtubeStr="YouTube"
-youtubeWhiteListStr="[hH]ow [tT]o [dD]raw|[dD]rawing|[çÇ]izim|[aA]lphabet|ABC [sS]ong"
+youtubeWhiteListStr="[hH]ow [tT]o [dD]raw|[dD]rawing|[çÇ]izim|[aA]lphabet|ABC [sS]ong|Cambridge English"
 youtubeTime=`cat ${logPath}/${logFileLast}   | grep "${youtubeStr}" | grep -cvE "${youtubeWhiteListStr}"`
 
 geForceStr="on GeForce NOW"
