@@ -84,18 +84,19 @@ gamesAboutTime=`cat ${logPath}/${logFileLast}  | grep -cE "${gamesAboutStr}"`
 # this value will be reduced by a factor of 2 on total funTime
 
 learningStr=":: Duolingo|Naradix|iveworksheets|classroom\.google\.com|docs\.google\.com/forms|geogra.ro|app\.programiz\.pro|Online lesson|learn.alg.academy|scratch\.mit\.edu/projects/.*/editor|poezii-pentru-copii"
-learningTime=`cat ${logPath}/${logFileLast}  | grep -oE ":: x.*(${learningStr})" | uniq | wc -l`
+learningYoutube="Cambridge English|Cambridge.* [eE]xam|[sS]peaking [eE]xam"
+learningTime=`cat ${logPath}/${logFileLast}  | grep -cE "${learningStr}|${learningYoutube}"`
 
 meetTime=`cat ${logPath}/${logFileLast}      | grep ":: Meet " | grep -vcE "[zZ]oom"`
 
-moviesStr=":: vlc ::|lookmovie2| movies|videos|/video/|[vV]iki|IEVENN"
+moviesStr=":: vlc ::|lookmovie2| movies|MoviestoWatch|videos|/video/|[vV]iki|IEVENN"
 moviesTime=`cat ${logPath}/${logFileLast}    | grep -cE "${moviesStr}"`
 
 whatsAppTime=`cat ${logPath}/${logFileLast}  | grep -c ":: WhatsApp"`
 
 youtubeStr="YouTube"
-youtubeWhiteListStr="[hH]ow [tT]o [dD]raw|[dD]rawing|[çÇ]izim|[aA]lphabet|ABC [sS]ong|Cambridge English"
-youtubeTime=`cat ${logPath}/${logFileLast}   | grep "${youtubeStr}" | grep -cvE "${youtubeWhiteListStr}"`
+youtubeWhiteListStr="[hH]ow [tT]o [dD]raw|[dD]rawing|[çÇ]izim|[aA]lphabet|ABC [sS]ong"
+youtubeTime=`cat ${logPath}/${logFileLast}   | grep "${youtubeStr}" | grep -cvE "${youtubeWhiteListStr}|${learningYoutube}"`
 
 geForceStr="on GeForce NOW"
 geForceTime=`cat ${logPath}/${logFileLast}   | grep -c "${geForceStr}"`
