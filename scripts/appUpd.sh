@@ -7,7 +7,7 @@ dstApp=("/opt/cxoffice/bin/wine" \
 	"/opt/blender/blender" \
 	"/opt/google/chrome/chrome" \
 	"/snap/geforcenow-electron/17/geforcenow-electron" \
-	"discord" \
+	"/opt/discord/Discord/Discord" \
 	"firefox" \
 	"java" \
 	"vlc" \
