@@ -38,10 +38,6 @@ for f in files:
     if 'windows' in j.keys():
         for w in j['windows']:
 
-            # Variables for keeping track of most recent tab
-            most_recent_tab_url = ''
-            min_time = 100000
-
             # run through tabs
             for t in w['tabs']:
                 # Firefox does not 0-index
