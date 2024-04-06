@@ -73,7 +73,7 @@ officeTime=`grep -cE ":: evince|soffice\.bin|featherpad|WINWORD\.EXE|POWERPNT\.E
 browsersTime=`grep -cE ":: chrome|firefox|_RUN" ${logPath}/${logFileLast}`
 browsersActiveTime=`cat ${logPath}/${logFileLast} | grep -cE ":: chrome|firefox"`
 
-chessStr=":: x.*[cC]hess\.com"
+chessStr=":: x.*([cC]hess\.com|lichess.org)"
 chessTime=`cat ${logPath}/${logFileLast}     | grep -oE "${chessStr}" | wc -l`
 
 gamesWebStr="[aton|] CrazyGames|Grepolis|[rR]2[gG]ames.com|oskarstalberg|slither.io|Elvenar|wilds.io|Total Battle|Mars Tomorrow|Krunker|Play.*on Poki|iogameslist.org|https://(ro|en)..*/game|On.*s.l.o.w.*r.o.a.d.s|Stumble Guys"
@@ -95,7 +95,7 @@ moviesTime=`cat ${logPath}/${logFileLast}    | grep -cE "${moviesStr}"`
 whatsAppTime=`cat ${logPath}/${logFileLast}  | grep -c ":: WhatsApp"`
 
 youtubeStr="YouTube"
-youtubeWhiteListStr="[hH]ow [tT]o [dD]raw|[dD]rawing|[çÇ]izim|[aA]lphabet|ABC [sS]ong"
+youtubeWhiteListStr="[hH]ow [tT]o [dD]raw|[dD]rawing|[çÇ]izim|[aA]lphabet|ABC [sS]ong|SPEAKING EXAM"
 youtubeTime=`cat ${logPath}/${logFileLast}   | grep "${youtubeStr}" | grep -cvE "${youtubeWhiteListStr}|${learningYoutube}"`
 
 geForceStr="on GeForce NOW"
