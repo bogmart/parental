@@ -222,9 +222,9 @@ function sayMessage {
   amixer -q set Speaker unmute
 
   sound_volume_cur=`amixer get Master | awk '/dB/{printf $3}'`
-  if [ ${sound_volume_cur} -lt 60 ]
+  if [ ${sound_volume_cur} -lt 50 ]
   then
-    amixer -q set Master 60
+    amixer -q set Master 50
   fi
 
   mic_status=`amixer get Capture | awk '/Left: Capture/{printf $7}'`
