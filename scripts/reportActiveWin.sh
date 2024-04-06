@@ -305,6 +305,7 @@ function unblockActiv {
 
   echo "---------------------"
   echo "Current_active" ${active_duration} "  (max" ${active_max_duration} "+ break" ${break_duration}")"
+  echo "fun_Max_Time" ${funMaxTime} "    others_Max_Time" ${othersMaxTime}  "  Sleep_Time " ${gotoSleepTime}
 
 
   time_zone=`date +%Z`
