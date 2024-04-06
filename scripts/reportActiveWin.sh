@@ -83,7 +83,7 @@ gamesAboutStr="steampowered\.com|sportskeeda\.com"
 gamesAboutTime=`cat ${logPath}/${logFileLast}  | grep -cE "${gamesAboutStr}"`
 # this value will be reduced by a factor of 2 on total funTime
 
-learningStr=":: Duolingo|Naradix|iveworksheets|classroom\.google\.com|docs\.google\.com/forms|geogra.ro|app\.programiz\.pro|Online lesson|learn.alg.academy|scratch\.mit\.edu/projects/.*/editor|poezii-pentru-copii"
+learningStr=":: Duolingo|Naradix|iveworksheets|classroom\.google\.com|docs\.google\.com/forms|geogra.ro|app\.programiz\.pro|Online lesson|learn.alg.academy|scratch\.mit\.edu/projects/.*/editor|poezii-pentru-copii|Thunkable"
 learningYoutube="Cambridge English|Cambridge.* [eE]xam|[sS]peaking [eE]xam"
 learningTime=`cat ${logPath}/${logFileLast}  | grep -cE "${learningStr}|${learningYoutube}"`
 
