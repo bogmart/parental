@@ -95,7 +95,7 @@ moviesTime=`cat ${logPath}/${logFileLast}    | grep -cE "${moviesStr}"`
 whatsAppTime=`cat ${logPath}/${logFileLast}  | grep -c ":: WhatsApp"`
 
 youtubeStr="YouTube"
-youtubeWhiteListStr="[hH]ow [tT]o [dD]raw|[dD]rawing|[çÇ]izim|[aA]lphabet|ABC [sS]ong|SPEAKING EXAM"
+youtubeWhiteListStr="[hH]ow [tT]o [dD]raw|[dD]rawing|[çÇ]izim|[aA]lphabet|ABC [sS]ong|SPEAKING EXAM|verbs with sentences|Simple Past Tense|Verbs in English"
 youtubeTime=`cat ${logPath}/${logFileLast}   | grep "${youtubeStr}" | grep -cvE "${youtubeWhiteListStr}|${learningYoutube}"`
 
 geForceStr="on GeForce NOW"
