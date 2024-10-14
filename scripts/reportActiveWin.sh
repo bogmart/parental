@@ -134,6 +134,25 @@ if [ ${minecraftTime}  -ne 0 ] ; then  echo "Minecraft     " ${minecraftTime} ; 
 if [ ${discordTime}    -ne 0 ] ; then  echo "Discord       " ${discordTime}   ; fi
 
 
+currentTime=$(date +%H:%M)  # HH:MM
+gotoSleepTime=${time_to_sleep_school}
+funMaxTime=${fun_MAX_school}
+
+dayOfWeek=$(date +%u)       # 1..7; 1 is Monday
+
+  
+if [ ${holiday} -eq 1 ]
+then
+  funMaxTime=${fun_MAX_holiday}
+  gotoSleepTime=${time_to_sleep_holiday}
+else
+  # Friday or Saturday 
+  if [ ${dayOfWeek} -eq 5 -o ${dayOfWeek} -eq 6 ]
+  then
+    funMaxTime=${fun_MAX_weekend}
+    gotoSleepTime=${time_to_sleep_weekend}
+  fi
+fi
 
 
 # apply restrictions only for current day (no params)
@@ -147,24 +166,6 @@ then
   #   /home/parental/scripts/hostsUpd.sh -a allow -d youtube
   # fi
 
-  currentTime=$(date +%H:%M)  # HH:MM
-  dayOfWeek=$(date +%u)       # 1..7; 1 is Monday
-
-  funMaxTime=${fun_MAX_school}
-  gotoSleepTime=${time_to_sleep_school}
-
-  if [ ${holiday} -eq 1 ]
-  then
-    funMaxTime=${fun_MAX_holiday}
-    gotoSleepTime=${time_to_sleep_holiday}
-  else
-    # Friday or Saturday 
-    if [ ${dayOfWeek} -eq 5 -o ${dayOfWeek} -eq 6 ]
-    then
-      funMaxTime=${fun_MAX_weekend}
-      gotoSleepTime=${time_to_sleep_weekend}
-    fi
-  fi
 
   # max time for "others"
   othersMaxTime=$(( ${funMaxTime} * ${others_MAX_coefficient} ))
@@ -297,8 +298,12 @@ function unblockActiv {
 
 
 
-
+if [ ${force_exec} -eq 1 ]
+then
+  monitorState="Disabled"
+else
   monitorState=$(xset -q | grep -E "Monitor is|DPMS is Disabled" | awk "{print \$3}")
+fi
 
   ### get active time in the last period (active + break) -- usually 60 minutes 
   active_duration=`tail -n $(( ${active_max_duration} + ${break_duration} ))  ${logPath}/${logFileLast} | grep "${totalOnStr}" | grep -cvE "${totalIdleStr}"`
