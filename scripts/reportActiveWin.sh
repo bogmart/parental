@@ -244,6 +244,7 @@ function sayMessage {
     amixer -q set Capture nocap
   fi
 
+  su ${userLoggedIn} -c "espeak '${userLoggedIn}, ' -s 100 -a 300  -v ro"
   su ${userLoggedIn} -c "espeak '${msg}' -s 100 -a 300  -v en-us"
 
   if [[ ${mic_status} == "[on]" ]]
@@ -302,6 +303,9 @@ function unblockActiv {
 
     ### turn monitor ON
     xset dpms force on
+
+    ## ToDo: move this
+    sayMessage "please resume your work!"
   fi
 }
 
@@ -345,7 +349,7 @@ function unblockActiv {
 	  active_next_duration=`tail -n $(( ${active_max_duration} -1 + ${break_duration} ))  ${logPath}/${logFileLast} | grep "${totalOnStr}" | grep -cvE "${totalIdleStr}"`
 	  if [ ${active_next_duration} -eq $(( ${active_max_duration} -1 )) ]
           then
-            sayMessage "It is time for a break!"
+            sayMessage "it is time for a break!"
           fi
         else
           blockAnyActiv
