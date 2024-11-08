@@ -10,6 +10,7 @@ dstApp=("/opt/cxoffice/bin/wine" \
 	"/opt/discord/Discord/Discord" \
 	"firefox" \
 	"java" \
+	"pcmanfm-qt" \
 	"vlc" \
        )
 
