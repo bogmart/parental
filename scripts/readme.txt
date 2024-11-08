@@ -50,3 +50,13 @@ post)
   /home/parental/scripts/reportActiveWin.sh
   ;;
 esac
+
+
+
+## /.Xauthority
+#################################################################
+## fix the ${HOME}/.Xauthority issue on the new SDDM
+# https://www.reddit.com/r/archlinux/comments/15s33yk/comment/k13h7t8/
+#file:  ${HOME}/.profile 
+    xhost +
+ 
