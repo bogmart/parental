@@ -6,7 +6,7 @@ appsToCheck="chrome|Discord|firefox|geforcenow-elec|java"
 
 whiteListCidr="/home/parental/scripts/white_list_ip.txt"
 
-whiteListDynUrl="liveworksheets.com  matemanieplus.ro  mail.yahoo.com ir2.yahoo.com geo.yahoo.com  web.whatsapp.com"
+whiteListDynUrl="liveworksheets.com  matemanieplus.ro  mail.yahoo.com ir2.yahoo.com geo.yahoo.com  superscoala.ro  voxvalachorum.ro  web.whatsapp.com"
 declare -a whiteListDynIP=(`getent ahosts ${whiteListDynUrl} | cut -d" " -f1 | sort -u`)
 #echo ${whiteListDynIP[@]}
 
