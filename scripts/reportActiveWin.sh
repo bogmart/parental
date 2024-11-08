@@ -104,7 +104,8 @@ geForceTime=`cat ${logPath}/${logFileLast}   | grep -c "${geForceStr}"`
 minecraftStr="java :: Minecraft|java :: WorldPainter"
 minecraftTime=`cat ${logPath}/${logFileLast} | grep -cE "${minecraftStr}"`
 
-discordTime=`cat ${logPath}/${logFileLast}   | grep -cE " Discord "`
+messengerStr=" Discord "
+discordTime=`cat ${logPath}/${logFileLast}   | grep -cE "${messengerStr}"`
 
 funStr="${chessStr}|${gamesWebStr}|${moviesStr}|${youtubeStr}|${geForceStr}|${minecraftStr}"
 
@@ -112,7 +113,7 @@ funTimeWeb=$(( ${chessTime} + ${gamesWebTime} + $(( ${gamesAboutTime} / 2 )) + $
 funTimeApp=$(( ${geForceTime} + ${minecraftTime} ))
 funTime=$(( ${funTimeWeb} + ${funTimeApp} ))
 
-othersTimeWeb=$(( ${browsersTime} - ${learningTime} - ${funTimeWeb} - ${whatsAppTime} ))
+othersTimeWeb=$(( ${browsersTime} - ${learningTime} - ${meetTime} - ${funTimeWeb} - ${whatsAppTime} ))
 
 echo "Total_active  " ${totalActiveTime}
 echo "  Fun_total   " ${funTime}
@@ -201,8 +202,17 @@ then
       if [ `echo ${lastActiveEntry} | grep -c ":: blender"` -eq 1 ]
       then
         /home/parental/scripts/appUpd.sh -a deny -d  /opt/blender/blender
+      else
+        if [ `echo ${lastActiveEntry} | grep -c "${messengerStr}"` -eq 1 ]
+        then
+          /home/parental/scripts/appUpd.sh -a deny -d  /opt/discord/Discord/Discord
+        fi
       fi
     fi
+
+    ## do not stop monitor
+    # exit
+
   fi
 fi
 
