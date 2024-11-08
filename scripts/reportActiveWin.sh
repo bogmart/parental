@@ -323,16 +323,17 @@ function unblockActiv {
 
 
   time_zone=`date +%Z`
-  timeSaySleep=`date +%H:%M  -d "${gotoSleepTime} ${time_zone} +1 min"`
+  timeSaySleep=`date +%H:%M  -d "${gotoSleepTime} ${time_zone} +0 min"`
   if [[ "${currentTime}" > "${timeSaySleep}"    ]]
   then
     if [[ "${monitorState}" == "On" || "${monitorState}" == "Disabled" ]] || [ ${force_exec} -eq 1 ]
     then
       sayMessage "It is time to sleep! Please save your work!"
 
-      timeBlockActiv=`date +%H:%M  -d "${gotoSleepTime} ${time_zone} +5 min"`
+      timeBlockActiv=`date +%H:%M  -d "${gotoSleepTime} ${time_zone} +1 min"`
       if [[ "${currentTime}" > "${timeBlockActiv}" ]]
       then
+        sleep 20
         blockAnyActiv
       fi
     fi
