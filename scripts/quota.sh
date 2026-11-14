@@ -6,7 +6,7 @@ appsToCheck="chrome|Discord|firefox|geforcenow-elec|java"
 
 whiteListCidr="/home/parental/scripts/white_list_ip.txt"
 
-whiteListDynUrl="www.duolingo.com  liveworksheets.com  matemanieplus.ro  mail.yahoo.com ir2.yahoo.com geo.yahoo.com  superscoala.ro  voxvalachorum.ro  web.whatsapp.com  x.thunkable.com  thunkable.com"
+whiteListDynUrl="www.duolingo.com  liveworksheets.com  matemanieplus.ro  mail.yahoo.com ir2.yahoo.com geo.yahoo.com  superscoala.ro  voxvalachorum.ro  web.whatsapp.com  x.thunkable.com  thunkable.com vimeo.com vimeocdn.com arclight.vimeo.com f.vimeocdn.com i.vimeocdn.com player.vimeo.com vod-adaptive-ak.vimeocdn.com lensflare.vimeo.com  googleapis.com wp.com s0.wp.com gravatar.com"
 declare -a whiteListDynIP=(`getent ahosts ${whiteListDynUrl} | cut -d" " -f1 | sort -u`)
 #echo ${whiteListDynIP[@]}
 
