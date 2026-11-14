@@ -76,18 +76,18 @@ browsersActiveTime=`cat ${logPath}/${logFileLast} | grep -cE ":: chrome|firefox"
 chessStr=":: x.*([cC]hess\.com|lichess.org)"
 chessTime=`cat ${logPath}/${logFileLast}     | grep -oE "${chessStr}" | wc -l`
 
-gamesWebStr="[aton|] CrazyGames|Grepolis|[rR]2[gG]ames.com|oskarstalberg|slither.io|Elvenar|wilds.io|Total Battle|Mars Tomorrow|Krunker|Play.*on Poki|iogameslist.org|https://(ro|en)..*/game|On.*s.l.o.w.*r.o.a.d.s|Stumble Guys"
+gamesWebStr="[aton|] CrazyGames|Grepolis|[rR]2[gG]ames.com|oskarstalberg|slither.io|Elvenar|wilds.io|Total Battle|Mars Tomorrow|Krunker|Play.*on Poki|iogameslist.org|www.gamedevrocket.com|itch.io|https://(ro|en)..*/game|On.*s.l.o.w.*r.o.a.d.s|Stumble Guys"
 gamesWebTime=`cat ${logPath}/${logFileLast}  | grep -cE "${gamesWebStr}"`
 
 gamesAboutStr="steampowered\.com|sportskeeda\.com"
 gamesAboutTime=`cat ${logPath}/${logFileLast}  | grep -cE "${gamesAboutStr}"`
 # this value will be reduced by a factor of 2 on total funTime
 
-learningStr=":: Duolingo|Naradix|iveworksheets|classroom\.google\.com|docs\.google\.com/forms|geogra.ro|app\.programiz\.pro|Online lesson|learn.alg.academy|scratch\.mit\.edu/projects/.*/editor|superscoala\.ro|poezii-pentru-copii|Thunkable|voxvalachorum|Valachorum"
+learningStr=":: Duolingo|Naradix|iveworksheets|algolymp.com|classroom\.google\.com|docs\.google\.com/forms|geogra.ro|app\.programiz\.pro|Online lesson|learn.alg.academy|scratch\.mit\.edu/projects/.*/editor|superscoala\.ro|SuperScoala|poezii-pentru-copii|Thunkable|voxvalachorum|Valachorum"
 learningYoutube="Cambridge English|Cambridge.* [eE]xam|[sS]peaking [eE]xam"
 learningTime=`cat ${logPath}/${logFileLast}  | grep -cE "${learningStr}|${learningYoutube}"`
 
-meetTime=`cat ${logPath}/${logFileLast}      | grep ":: Meet " | grep -vcE "[zZ]oom"`
+meetTime=`cat ${logPath}/${logFileLast}      | grep "chrome :: Meet " | grep -vcE "[zZ]oom"`
 
 moviesStr=":: vlc ::|\.avi|\.mp[4eg]|lookmovie2| movies|MoviestoWatch|videos|/video/|[vV]iki|IEVENN"
 moviesTime=`cat ${logPath}/${logFileLast}    | grep -cE "${moviesStr}"`
@@ -101,7 +101,7 @@ youtubeTime=`cat ${logPath}/${logFileLast}   | grep "${youtubeStr}" | grep -cvE 
 geForceStr="on GeForce NOW"
 geForceTime=`cat ${logPath}/${logFileLast}   | grep -c "${geForceStr}"`
 
-minecraftStr="java :: Minecraft|java :: WorldPainter"
+minecraftStr="2048 Game|java :: Minecraft|java :: WorldPainter"
 minecraftTime=`cat ${logPath}/${logFileLast} | grep -cE "${minecraftStr}"`
 
 messengerStr=" Discord "
@@ -131,7 +131,7 @@ if [ ${moviesTime}     -ne 0 ] ; then  echo "  Movies      " ${moviesTime}    ; 
 if [ ${whatsAppTime}   -ne 0 ] ; then  echo "  WhatsApp    " ${whatsAppTime}  ; fi
 if [ ${youtubeTime}    -ne 0 ] ; then  echo "  YouTube     " ${youtubeTime}   ; fi
 if [ ${geForceTime}    -ne 0 ] ; then  echo "GeForce       " ${geForceTime}   ; fi
-if [ ${minecraftTime}  -ne 0 ] ; then  echo "Minecraft     " ${minecraftTime} ; fi
+if [ ${minecraftTime}  -ne 0 ] ; then  echo "Games Local   " ${minecraftTime} ; fi
 if [ ${discordTime}    -ne 0 ] ; then  echo "Discord       " ${discordTime}   ; fi
 
 
