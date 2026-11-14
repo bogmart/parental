@@ -1,0 +1,11 @@
+loginId=$(who | awk '$2 ~ /^tty/ {print $1; exit}')
+userLoggedIn=
+
+if [ -n "$loginId" ]; then
+    userLoggedIn=$(getent passwd "$loginId" | cut -d: -f1)
+fi
+
+if [ -z "$userLoggedIn" ]; then
+    echo "ERROR: Cannot determine the logged-in desktop user" >&2
+    exit 1
+fi

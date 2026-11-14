@@ -5,7 +5,7 @@ logPath=/home/parental/logs
 holiday=0
 noRestrictions=0
 
-userLoggedIn=$(who | grep tty | awk '{print $1}')
+source /home/parental/scripts/userLoggedIn
 
 
 if [[ "${userLoggedIn}" == "vlad" ]]

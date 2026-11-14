@@ -1,6 +1,6 @@
 #!/bin/bash
 
-userLoggedIn=$(who | grep tty | awk '{print $1}')
+source /home/parental/scripts/userLoggedIn
 
 chromeHistory=/home/${userLoggedIn}/.config/google-chrome/Default/History
 chromeTmpHistory=/tmp/chrome_history_tmp

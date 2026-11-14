@@ -1,6 +1,6 @@
 #!/bin/bash
 
-userLoggedIn=$(who | grep tty | awk '{print $1}')
+source /home/parental/scripts/userLoggedIn
 
 sessionFileLatest=$(ls -1t /home/${userLoggedIn}/.config/google-chrome/Default/Sessions/Session_* | head -n1)
 

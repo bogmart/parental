@@ -10,7 +10,7 @@ logPath=/home/parental/logs
 
 holiday=0
 
-userLoggedIn=$(who | grep tty | awk '{print $1}')
+source /home/parental/scripts/userLoggedIn
 
 
 active_max_duration=45

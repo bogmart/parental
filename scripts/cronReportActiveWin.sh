@@ -5,7 +5,7 @@
 #
 # sudo less /var/spool/cron/crontabs/root
 
-userLoggedIn=$(who | grep tty | awk '{print $1}')
+source /home/parental/scripts/userLoggedIn
 
 reportPath=/home/${userLoggedIn}/Desktop
 reportFile="REPORT.txt"

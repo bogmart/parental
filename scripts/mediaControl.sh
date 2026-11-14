@@ -1,6 +1,6 @@
 #!/bin/bash
 
-userLoggedIn=$(who | grep tty | awk '{print $1}')
+source /home/parental/scripts/userLoggedIn
 
 export DISPLAY=:0.0
 export XAUTHORITY=/home/${userLoggedIn}/.Xauthority
