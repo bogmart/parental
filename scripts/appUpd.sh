@@ -4,6 +4,7 @@ libreOffice=`ls -1 /usr/share/applications/libreoffice*-base.desktop | awk -F '[
 
 dstApp=("/opt/cxoffice/bin/wine" \
 	"${libreOffice}" \
+	"/opt/krita/krita-5.0.0-x86_64.appimage" \
 	"/opt/blender/blender" \
 	"/opt/google/chrome/chrome" \
 	"/snap/geforcenow-electron/17/geforcenow-electron" \
